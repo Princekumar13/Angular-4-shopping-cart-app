@@ -1,0 +1,29 @@
+.cart-item img{
+    width: 80%;
+}
+
+.cartprice{
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+.quantitybtn{
+    margin-top:10px;
+}
+.quantitybtn button{
+    font-weight: 700;
+}
+.inputtype input{
+    text-align: center;
+}
+.total{
+    float: right;
+}
+@media only screen and (max-width: 576px){
+.mycart{
+    text-align: center;
+}
+.quantitybtn{
+    margin-left: 40px;
+}
+
+}

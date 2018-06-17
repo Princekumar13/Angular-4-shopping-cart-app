@@ -1,0 +1,42 @@
+<h1>Men's Shoes:</h1>
+<div class="container-fluid jumbotron">
+    <div class="list-items">
+        <div class="list-item" *ngFor="let item of Items.Shoes">
+            <img [src]="item.url" alt="Image missing">
+            <p>{{item.dec}}</p>
+            <p>{{item.price | currency:'INR'}}</p>
+            <p>
+                <button class="btn btn-info"  (click)="addData(item)" *ngIf="!myAdd(item)">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    Add To Cart!
+                </button>
+
+                <a routerLink="/cartlist"><button class="btn btn-info"  *ngIf="myAdd(item)">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Go To Cart!
+                </button></a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid jumbotron">
+    <div class="list-items">
+        <div class="list-watches" *ngFor="let item of Items.Watches">
+            <img [src]="item.url" alt="Image missing">
+            <p>{{item.dec}}</p>
+            <p>{{item.price | currency:'INR'}}</p>
+            <p>
+                    <button class="btn btn-info"  (click)="addData(item)" *ngIf="!myAdd(item)">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Add To Cart!
+                    </button>
+
+                    <a [routerLink]="['/cartlist']"><button class="btn btn-info"  *ngIf="myAdd(item)">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Go To Cart!
+                    </button></a>
+            </p>
+        </div>
+    </div>
+</div>

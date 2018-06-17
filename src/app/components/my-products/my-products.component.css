@@ -1,0 +1,30 @@
+.list-items {
+    display: flex;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: space-around;
+}
+ 
+.list-items img{
+    width: 70%;
+}
+
+.list-watches img{
+    width: 50%;
+}
+
+@media only screen and (max-width: 576px) {
+    .list-items {
+        display: block;
+        margin-top: 20px;
+    }
+    .list-items img{
+        width: 100%;
+    }
+
+    .list-watches img{
+        width: 80%;
+    }
+ 
+    
+}

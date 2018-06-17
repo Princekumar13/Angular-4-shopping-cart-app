@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="cart-item">
+        <div class="row">
+            <div class="col-sm-8 mycart">
+                <div class="row" *ngFor="let v of cartItem; let i = index">
+                    <div class="col-sm-4 image jumbotron">
+                        <img [src]="v.product.url" alt="Image missing">
+                        <div class="row quantitybtn">
+                           
+                            <div class="col-sm-3 col-xs-2">
+                                <button class="btn btn-default btn-sm" [disabled]=" v.quantity <= 1" (click)="subtracting(v.product.Id)">-</button>
+                            </div>
+
+                            <div class="col-sm-4 col-xs-3 inputtype">
+                                    <div class="inputtype">
+                                            <input type="text" name="quantity" value="{{v.quantity}}" size="2" #myval maxlength="2" (blur)="myval.value=v.quantity"
+                                            (keyup)="v.quantity=minmax(myval.value,v.product.allowed,1,v.quantity)" (keypress)="onlyNumberKey($event)">
+                                    </div>
+                            </div>
+    
+                            <div class="col-sm-3 col-xs-2">
+                                <button class="btn btn-default btn-sm" (click)="adding(v.product.Id,v.quantity)">+</button>
+                            </div>
+                   
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <h3>{{v.product.dec}}</h3>
+                        <h4>{{v.product.price | currency:'INR'}}</h4><br>
+                        <button class="btn btn-default">BUY NOW</button>
+                        <button class="btn btn-danger" (click)="delete(v,i)">REMOVE</button>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 cartprice" *ngIf="cartItem.length">
+                <h5>PRICE DETAIL</h5>
+                <hr>
+                <p>Price({{cartItem.length}} item)<span class="total">{{getTotal() | currency:'INR'}}</span></p>
+                <hr>
+                <p><b>Amount Payable</b><span class="total">{{getTotal() | currency:'INR'}}</span></p>
+            
+            </div> 
+        </div>
+        <div class="emptycart" *ngIf="!cartItem.length">
+            <h2 class="alert alert-danger">Your Cart is empty!</h2>
+        </div>   
+    </div>
+</div>
